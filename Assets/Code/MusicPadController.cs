@@ -1,18 +1,21 @@
 using UnityEngine;
 using MidiJack;
+using System.Collections;
 
 public class MusicPadController : MonoBehaviour
 {
     [System.Serializable]
     public class MusicPad
     {
-        public int noteNumber;            // nanoPAD2 pad 編號（MIDI Note）
-        public AudioClip clip;            // 音樂片段
-        public bool loop = true;          // 是否循環播放
+        public int noteNumber;
+        public AudioClip clip;
+        public bool loop = true;
         [HideInInspector] public AudioSource source;
+        [HideInInspector] public Coroutine currentCoroutine;
     }
 
     public MusicPad[] pads;
+    public float fadeDuration = 1f;  // 淡入淡出時間（秒）
 
     void Start()
     {
@@ -24,6 +27,7 @@ public class MusicPadController : MonoBehaviour
             pad.source.clip = pad.clip;
             pad.source.loop = pad.loop;
             pad.source.playOnAwake = false;
+            pad.source.volume = 0f; // 預設為 0
         }
     }
 
@@ -33,22 +37,54 @@ public class MusicPadController : MonoBehaviour
         {
             if (MidiMaster.GetKeyDown(pad.noteNumber))
             {
-                if (pad.source.isPlaying)
+                if (pad.currentCoroutine != null)
                 {
-                    pad.source.Stop(); // 再按一次就停止
+                    StopCoroutine(pad.currentCoroutine);
                 }
+
+                if (!pad.source.isPlaying)
+                {
+                    pad.source.volume = 0f;
+                    pad.source.Play();
+                    Debug.Log("開始播放 " + pad.clip.name);
+                    pad.currentCoroutine = StartCoroutine(FadeVolume(pad.source, 0f, 1f));
+                }
+
                 else
                 {
-                    pad.source.Play();  // 播放自己，不管其他人
+                    pad.currentCoroutine = StartCoroutine(FadeOutAndStop(pad));
                 }
             }
         }
+    }
 
-        // 除錯：印出所有按下的 note
-        for (int i = 0; i < 128; i++)
+    IEnumerator FadeVolume(AudioSource source, float from, float to)
+    {
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
         {
-            if (MidiMaster.GetKeyDown(i))
-                Debug.Log("Pressed Note: " + i);
+            elapsed += Time.deltaTime;
+            source.volume = Mathf.Lerp(from, to, elapsed / fadeDuration);
+            Debug.Log("volume: " + source.volume);  // ← 加這行
+            yield return null;
         }
+        source.volume = to;
+    }
+
+
+    IEnumerator FadeOutAndStop(MusicPad pad)
+    {
+        float startVolume = pad.source.volume;
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            pad.source.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeDuration);
+            yield return null;
+        }
+
+        pad.source.volume = 0f;
+        pad.source.Stop();
     }
 }

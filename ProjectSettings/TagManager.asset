@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FireLayer1
+    uniqueID: 2419332881
+    locked: 0
+  - name: FireLayer2
+    uniqueID: 2671191581
+    locked: 0
+  - name: FireLayer3
+    uniqueID: 1810829755
+    locked: 0
+  - name: FireLayer4
+    uniqueID: 1493842049
+    locked: 0
+  - name: FireLayer5
+    uniqueID: 4172289311
+    locked: 0
+  - name: FireLayer6
+    uniqueID: 494969775
+    locked: 0
+  - name: FireLayer7
+    uniqueID: 2312646081
     locked: 0

@@ -3,6 +3,8 @@ using MidiJack;
 
 public class GlobalVolumeController : MonoBehaviour
 {
+    public bool isAnySoundPlaying = false;  // 設定為 public，使其他類別可以訪問
+
     public int midiCCNumber = 0;
     public float minVolume = 0f;
     public float maxVolume = 1f;
@@ -24,7 +26,6 @@ public class GlobalVolumeController : MonoBehaviour
         if (updateTimer > 1f)
         {
             allAudioSources = FindObjectsOfType<AudioSource>();
-            //Debug.Log($"🎧 Reloaded {allAudioSources.Length} AudioSources.");
             updateTimer = 0f;
         }
 
@@ -49,7 +50,7 @@ public class GlobalVolumeController : MonoBehaviour
         // 保存音量设置到 PlayerPrefs
         PlayerPrefs.SetFloat("MusicVolume", volume);
 
-        // 调试输出音量值
-        //Debug.Log($"🎵 [Music Volume CC#{midiCCNumber}] Knob → Volume = {volume:F2}");
+        // 更新音效播放狀態
+        isAnySoundPlaying = volume > 0f;
     }
 }
