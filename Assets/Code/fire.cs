@@ -13,7 +13,7 @@ public class fire : MonoBehaviour
 
     public Sprite[] imageOptions;
 
-    public int[] midiCCNumbers = {42, 44, 46, 48}; // 第一個 MIDI 控制器編號
+    public float[] midiCCNumbers = {44, 42, 41, 45}; // 第一個 MIDI 控制器編號
 
     public GameObject glowPrefab; // 火焰粒子物件 (Glow)
     public Transform[] firePoints; // 4個固定位置
@@ -88,7 +88,8 @@ public class fire : MonoBehaviour
 
     void Update()
     {
-        if (MidiMaster.GetKeyDown(midiCCNumbers[0]) || Input.GetKeyDown(KeyCode.Space)) // 使用 MIDI 按鍵或空白鍵來開始旋轉
+
+        if (MidiMaster.GetKnob((int)midiCCNumbers[0]) > 0.5f  || Input.GetKeyDown(KeyCode.Space)) // 使用 MIDI 按鍵或空白鍵來開始旋轉
         {
             stop1 = stop2 = stop3 = false;
             hasWon = false;
@@ -99,9 +100,9 @@ public class fire : MonoBehaviour
             spinningCoroutine = StartCoroutine(SpinImages());
         }
 
-        if (MidiMaster.GetKeyDown(midiCCNumbers[1]) || Input.GetKeyDown(KeyCode.T)) stop1 = true;
-        if (MidiMaster.GetKeyDown(midiCCNumbers[2]) || Input.GetKeyDown(KeyCode.Y)) stop2 = true;
-        if (MidiMaster.GetKeyDown(midiCCNumbers[3]) || Input.GetKeyDown(KeyCode.U)) stop3 = true;
+        if (MidiMaster.GetKnob((int)midiCCNumbers[1]) > 0.5f || Input.GetKeyDown(KeyCode.T)) stop1 = true;
+        if (MidiMaster.GetKnob((int)midiCCNumbers[2]) > 0.5f || Input.GetKeyDown(KeyCode.Y)) stop2 = true;
+        if (MidiMaster.GetKnob((int)midiCCNumbers[3]) > 0.5f || Input.GetKeyDown(KeyCode.U)) stop3 = true;
 
         if (!hasWon && stop1 && stop2 && stop3)
         {

@@ -1144,8 +1144,8 @@ Camera:
   m_GameObject: {fileID: 1049029549}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.0627451, g: 0.10588236, b: 0.15686275, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2926,7 +2926,11 @@ MonoBehaviour:
   - {fileID: -1583633645713027748, guid: 1f95b11712496634ba8913df76f1ef99, type: 3}
   - {fileID: 8095042513809115595, guid: b5a3f7a561d5cd247a71c223dd63986d, type: 3}
   - {fileID: -3329233148623767939, guid: 0417bdfdd2b381f45b7803ecdef9e714, type: 3}
-  midiCCNumbers: 2a0000002c0000002e00000030000000
+  midiCCNumbers:
+  - 44
+  - 42
+  - 41
+  - 45
   glowPrefab: {fileID: 1867674047}
   firePoints:
   - {fileID: 919404795}
@@ -3209,8 +3213,8 @@ SceneRoots:
   - {fileID: 1452869909}
   - {fileID: 1589872866}
   - {fileID: 1925958024}
-  - {fileID: 513518452}
   - {fileID: 919404795}
+  - {fileID: 513518452}
   - {fileID: 1255214425}
   - {fileID: 2144164863}
   - {fileID: 371807920}
