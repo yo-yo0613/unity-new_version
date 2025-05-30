@@ -1345,7 +1345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -108.7, y: -10.4}
+  m_AnchoredPosition: {x: -172.76, y: 2.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701718252
@@ -1964,14 +1964,14 @@ RectTransform:
   m_GameObject: {fileID: 1596319143}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2137577624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: -10.4}
+  m_AnchoredPosition: {x: -22.83, y: 27.59}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596319145
@@ -1994,7 +1994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8623040250732295583, guid: ab2e170e71e818a4585dc48ebd405368, type: 3}
+  m_Sprite: {fileID: 2726884332630130622, guid: c077afb2525f00f4b83677e9ccd3dda3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2824,6 +2824,22 @@ PrefabInstance:
     - target: {fileID: 411331533374114768, guid: b52f2270ecf691040bf5bedc06f79db1, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 878229740825682902, guid: b52f2270ecf691040bf5bedc06f79db1, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 878229740825682902, guid: b52f2270ecf691040bf5bedc06f79db1, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.1137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 878229740825682902, guid: b52f2270ecf691040bf5bedc06f79db1, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.10588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 878229740825682902, guid: b52f2270ecf691040bf5bedc06f79db1, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.015686275
       objectReference: {fileID: 0}
     - target: {fileID: 3946241739136993647, guid: b52f2270ecf691040bf5bedc06f79db1, type: 3}
       propertyPath: m_LocalPosition.x
