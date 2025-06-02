@@ -346,7 +346,7 @@ public class fire : MonoBehaviour
     {
         Debug.Log("✨ 所有小精靈皆出現，開始倒數轉場...");
         
-        yield return new WaitForSeconds(10f); // 等 10 秒
+        yield return new WaitForSeconds(1f); // 等 10 秒
 
         // 👉 若你有動畫，這裡可以播放動畫、等待它完成
         // yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("XXX") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);

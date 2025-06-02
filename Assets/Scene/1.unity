@@ -513,27 +513,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pads:
-  - noteNumber: 36
+  - noteNumber: 32
     clip: {fileID: 8300000, guid: c526a830b78ca2240b1795af27453881, type: 3}
     loop: 1
     source: {fileID: 0}
-  - noteNumber: 37
+  - noteNumber: 48
     clip: {fileID: 8300000, guid: 5ebcbe8fd6aea384598480a6d6428985, type: 3}
     loop: 1
     source: {fileID: 0}
-  - noteNumber: 38
+  - noteNumber: 64
     clip: {fileID: 8300000, guid: 78bb3e7be2925ed49a0abcf4ee5a264e, type: 3}
     loop: 1
     source: {fileID: 0}
-  - noteNumber: 39
+  - noteNumber: 33
     clip: {fileID: 8300000, guid: 08165d3219d6995418bc1b2f9a75cdf7, type: 3}
     loop: 1
     source: {fileID: 0}
-  - noteNumber: 40
+  - noteNumber: 49
     clip: {fileID: 8300000, guid: 29401157846e11a49af5c5da7d65c2aa, type: 3}
     loop: 1
     source: {fileID: 0}
-  - noteNumber: 41
+  - noteNumber: 65
     clip: {fileID: 8300000, guid: 5925f31baf895d5428dc05484c2a5c8c, type: 3}
     loop: 1
     source: {fileID: 0}
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   minZoom: 9
   maxZoom: 5
   fairy: {fileID: 1596319143}
-  showTime: 10
+  showTime: 1
   targetZoom: 9
 --- !u!114 &555994837
 MonoBehaviour:

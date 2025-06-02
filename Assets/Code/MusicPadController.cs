@@ -35,7 +35,7 @@ public class MusicPadController : MonoBehaviour
     {
         foreach (var pad in pads)
         {
-            if (MidiMaster.GetKeyDown(pad.noteNumber))
+            if (MidiMaster.GetKnob(pad.noteNumber) > 0.5f)
             {
                 if (pad.currentCoroutine != null)
                 {
@@ -56,6 +56,14 @@ public class MusicPadController : MonoBehaviour
                 }
             }
         }
+
+        for (int i = 0; i < 128; i++) // MIDI note 範圍通常 0~127
+        {
+            if (MidiMaster.GetKeyDown(i))
+            {
+                Debug.Log($"Detected MIDI key down: {i}");
+            }
+        }
     }
 
     IEnumerator FadeVolume(AudioSource source, float from, float to)
@@ -65,7 +73,7 @@ public class MusicPadController : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             source.volume = Mathf.Lerp(from, to, elapsed / fadeDuration);
-            Debug.Log("volume: " + source.volume);  // ← 加這行
+            //Debug.Log("volume: " + source.volume);  // ← 加這行
             yield return null;
         }
         source.volume = to;

@@ -23,7 +23,7 @@ public class RiverControllers : MonoBehaviour
         color.a = Mathf.Lerp(1, 0, riverOpacity);  // 使用Lerp來平滑透明度變化
         riverRenderer.color = color;
 
-        Debug.Log($"River Opacity: {color.a}");  // 輸出當前河流透明度到控制台
+        //Debug.Log($"River Opacity: {color.a}");  // 輸出當前河流透明度到控制台
 
         // 控制小精靈顯示與否，當透明度低於 20% 時顯示小精靈，否則隱藏
         if (riverOpacity > 0.2f && !isFading)

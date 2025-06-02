@@ -2,7 +2,7 @@ using System.Collections; // ← 為了使用 IEnumerator
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WaitingScene : MonoBehaviour
+public class WaitingSceneing : MonoBehaviour
 {
     void Start()
     {

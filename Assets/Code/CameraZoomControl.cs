@@ -56,7 +56,7 @@ public class CameraZoomControl : MonoBehaviour
     void CheckAndShowFairy(float zoomValue)
     {
 
-        Debug.Log("Current zoom value: " + zoomValue);  // 检查当前的 zoomValue
+        //Debug.Log("Current zoom value: " + zoomValue);  // 检查当前的 zoomValue
 
         // 设置你想要的显示阈值
         float threshold = 0.5f; // 例如，当 zoomValue 小于等于 0.5 时才显示小精灵

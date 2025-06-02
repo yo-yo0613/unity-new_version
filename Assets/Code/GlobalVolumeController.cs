@@ -3,9 +3,8 @@ using MidiJack;
 
 public class GlobalVolumeController : MonoBehaviour
 {
-    public bool isAnySoundPlaying = false;  // 設定為 public，使其他類別可以訪問
-
-    public int midiCCNumber = 0;
+    public bool isAnySoundPlaying = false;
+    public int midiCCNumber = 1; // 請確保 Inspector 有設定，0 通常沒作用
     public float minVolume = 0f;
     public float maxVolume = 1f;
 
@@ -14,14 +13,12 @@ public class GlobalVolumeController : MonoBehaviour
 
     void Start()
     {
-        // 从 PlayerPrefs 中读取之前保存的音量设置
-        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f); // 默认音量 0.5
+        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         SetVolume(savedVolume);
     }
 
     void Update()
     {
-        // 🔁 每 1 秒自動更新一次 audio sources
         updateTimer += Time.deltaTime;
         if (updateTimer > 1f)
         {
@@ -29,10 +26,10 @@ public class GlobalVolumeController : MonoBehaviour
             updateTimer = 0f;
         }
 
-        // 获取旋钮的值，控制音量
         float knob = MidiMaster.GetKnob(midiCCNumber);
-        float volume = Mathf.Lerp(minVolume, maxVolume, knob);
+        Debug.Log("Midi knob value: " + knob);
 
+        float volume = Mathf.Lerp(minVolume, maxVolume, knob);
         SetVolume(volume);
     }
 
@@ -47,10 +44,9 @@ public class GlobalVolumeController : MonoBehaviour
             }
         }
 
-        // 保存音量设置到 PlayerPrefs
         PlayerPrefs.SetFloat("MusicVolume", volume);
 
-        // 更新音效播放狀態
+        // 更新是否有聲音播放
         isAnySoundPlaying = volume > 0f;
     }
 }
